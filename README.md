@@ -1,2 +1,1 @@
-# bigbang-client-swift
-Big Bang Client SDK for iOS and OSX
+# Big Bang SDK for iOS and OSX

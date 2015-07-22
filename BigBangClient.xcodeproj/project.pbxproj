@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		182F99981B3CBD5300BC05DA /* BigBangClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 182F99971B3CBD5300BC05DA /* BigBangClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		182F999E1B3CBD5300BC05DA /* BigBangClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F99921B3CBD5300BC05DA /* BigBangClient.framework */; };
+		182F99A51B3CBD5300BC05DA /* BigBangClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F99A41B3CBD5300BC05DA /* BigBangClientTests.swift */; };
+		1839BD451B3DCAD9000277D4 /* PewRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839BD441B3DCAD9000277D4 /* PewRuntime.swift */; };
+		1839BD471B3DD1CB000277D4 /* WireProtocol.Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839BD461B3DD1CB000277D4 /* WireProtocol.Protocol.swift */; };
+		1839BD491B3F9B29000277D4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839BD481B3F9B29000277D4 /* Extensions.swift */; };
+		1839BD4B1B3F9B7C000277D4 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839BD4A1B3F9B7C000277D4 /* Channel.swift */; };
+		1839BD4D1B40F284000277D4 /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839BD4C1B40F284000277D4 /* ChannelData.swift */; };
+		18AC571D1B4D74560032D409 /* BigBangClientProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC571C1B4D74560032D409 /* BigBangClientProtocols.swift */; };
+		18F2EA1D1B3CCA3A00AFD093 /* BigBangClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2EA1C1B3CCA3A00AFD093 /* BigBangClient.swift */; };
+		DC42E532B3FED66FE957D491 /* Pods_BigBangClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB3DF2DEF64A72E0C0F6AFB /* Pods_BigBangClient.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E08930842824D07B440269E9 /* Pods_BigBangClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB98C29375B2D7B3F712657 /* Pods_BigBangClientTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		182F999F1B3CBD5300BC05DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 182F99891B3CBD5300BC05DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 182F99911B3CBD5300BC05DA;
+			remoteInfo = BigBangClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05ACEC468F68A713E14DF1B5 /* Pods-BigBangClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBangClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BigBangClientTests/Pods-BigBangClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		182F99921B3CBD5300BC05DA /* BigBangClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BigBangClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		182F99961B3CBD5300BC05DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		182F99971B3CBD5300BC05DA /* BigBangClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigBangClient.h; sourceTree = "<group>"; };
+		182F999D1B3CBD5300BC05DA /* BigBangClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigBangClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		182F99A31B3CBD5300BC05DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		182F99A41B3CBD5300BC05DA /* BigBangClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBangClientTests.swift; sourceTree = "<group>"; };
+		1839BD441B3DCAD9000277D4 /* PewRuntime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PewRuntime.swift; sourceTree = "<group>"; };
+		1839BD461B3DD1CB000277D4 /* WireProtocol.Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireProtocol.Protocol.swift; sourceTree = "<group>"; };
+		1839BD481B3F9B29000277D4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1839BD4A1B3F9B7C000277D4 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		1839BD4C1B40F284000277D4 /* ChannelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
+		18AC571C1B4D74560032D409 /* BigBangClientProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigBangClientProtocols.swift; sourceTree = "<group>"; };
+		18F2EA1C1B3CCA3A00AFD093 /* BigBangClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigBangClient.swift; sourceTree = "<group>"; };
+		28E2DE7AF92EF050B1F4F765 /* Pods-BigBangClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBangClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BigBangClient/Pods-BigBangClient.debug.xcconfig"; sourceTree = "<group>"; };
+		3AB98C29375B2D7B3F712657 /* Pods_BigBangClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BigBangClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CB8A70071EE67905D797AF8 /* Pods-BigBangClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBangClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-BigBangClient/Pods-BigBangClient.release.xcconfig"; sourceTree = "<group>"; };
+		A5DC5352CF61A3E712030B85 /* Pods-BigBangClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBangClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BigBangClientTests/Pods-BigBangClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BFB3DF2DEF64A72E0C0F6AFB /* Pods_BigBangClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BigBangClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		182F998E1B3CBD5300BC05DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC42E532B3FED66FE957D491 /* Pods_BigBangClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		182F999A1B3CBD5300BC05DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182F999E1B3CBD5300BC05DA /* BigBangClient.framework in Frameworks */,
+				E08930842824D07B440269E9 /* Pods_BigBangClientTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		182F99881B3CBD5300BC05DA = {
+			isa = PBXGroup;
+			children = (
+				182F99941B3CBD5300BC05DA /* BigBangClient */,
+				182F99A11B3CBD5300BC05DA /* BigBangClientTests */,
+				182F99931B3CBD5300BC05DA /* Products */,
+				8177DFE21DDE6DDEAA2E2AF8 /* Pods */,
+				217C7045A68F36E24947FE1C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		182F99931B3CBD5300BC05DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				182F99921B3CBD5300BC05DA /* BigBangClient.framework */,
+				182F999D1B3CBD5300BC05DA /* BigBangClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		182F99941B3CBD5300BC05DA /* BigBangClient */ = {
+			isa = PBXGroup;
+			children = (
+				182F99971B3CBD5300BC05DA /* BigBangClient.h */,
+				182F99951B3CBD5300BC05DA /* Supporting Files */,
+				18F2EA1C1B3CCA3A00AFD093 /* BigBangClient.swift */,
+				1839BD441B3DCAD9000277D4 /* PewRuntime.swift */,
+				1839BD461B3DD1CB000277D4 /* WireProtocol.Protocol.swift */,
+				1839BD481B3F9B29000277D4 /* Extensions.swift */,
+				1839BD4A1B3F9B7C000277D4 /* Channel.swift */,
+				1839BD4C1B40F284000277D4 /* ChannelData.swift */,
+				18AC571C1B4D74560032D409 /* BigBangClientProtocols.swift */,
+			);
+			path = BigBangClient;
+			sourceTree = "<group>";
+		};
+		182F99951B3CBD5300BC05DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				182F99961B3CBD5300BC05DA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		182F99A11B3CBD5300BC05DA /* BigBangClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				182F99A41B3CBD5300BC05DA /* BigBangClientTests.swift */,
+				182F99A21B3CBD5300BC05DA /* Supporting Files */,
+			);
+			path = BigBangClientTests;
+			sourceTree = "<group>";
+		};
+		182F99A21B3CBD5300BC05DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				182F99A31B3CBD5300BC05DA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		217C7045A68F36E24947FE1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFB3DF2DEF64A72E0C0F6AFB /* Pods_BigBangClient.framework */,
+				3AB98C29375B2D7B3F712657 /* Pods_BigBangClientTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8177DFE21DDE6DDEAA2E2AF8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28E2DE7AF92EF050B1F4F765 /* Pods-BigBangClient.debug.xcconfig */,
+				7CB8A70071EE67905D797AF8 /* Pods-BigBangClient.release.xcconfig */,
+				A5DC5352CF61A3E712030B85 /* Pods-BigBangClientTests.debug.xcconfig */,
+				05ACEC468F68A713E14DF1B5 /* Pods-BigBangClientTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		182F998F1B3CBD5300BC05DA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182F99981B3CBD5300BC05DA /* BigBangClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		182F99911B3CBD5300BC05DA /* BigBangClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 182F99A81B3CBD5300BC05DA /* Build configuration list for PBXNativeTarget "BigBangClient" */;
+			buildPhases = (
+				C43ABE32C45F4BF13659FAFA /* Check Pods Manifest.lock */,
+				182F998D1B3CBD5300BC05DA /* Sources */,
+				182F998E1B3CBD5300BC05DA /* Frameworks */,
+				182F998F1B3CBD5300BC05DA /* Headers */,
+				182F99901B3CBD5300BC05DA /* Resources */,
+				247346ADFFCB0EAB9298B714 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BigBangClient;
+			productName = BigBangClient;
+			productReference = 182F99921B3CBD5300BC05DA /* BigBangClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		182F999C1B3CBD5300BC05DA /* BigBangClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 182F99AB1B3CBD5300BC05DA /* Build configuration list for PBXNativeTarget "BigBangClientTests" */;
+			buildPhases = (
+				1E2C39B78C5E261F5C4D9F59 /* Check Pods Manifest.lock */,
+				182F99991B3CBD5300BC05DA /* Sources */,
+				182F999A1B3CBD5300BC05DA /* Frameworks */,
+				182F999B1B3CBD5300BC05DA /* Resources */,
+				A680146360530991AA2D8218 /* Embed Pods Frameworks */,
+				A85AAFAE2F61E057C61B0F7A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				182F99A01B3CBD5300BC05DA /* PBXTargetDependency */,
+			);
+			name = BigBangClientTests;
+			productName = BigBangClientTests;
+			productReference = 182F999D1B3CBD5300BC05DA /* BigBangClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		182F99891B3CBD5300BC05DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = tigeba;
+				TargetAttributes = {
+					182F99911B3CBD5300BC05DA = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					182F999C1B3CBD5300BC05DA = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 182F998C1B3CBD5300BC05DA /* Build configuration list for PBXProject "BigBangClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 182F99881B3CBD5300BC05DA;
+			productRefGroup = 182F99931B3CBD5300BC05DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				182F99911B3CBD5300BC05DA /* BigBangClient */,
+				182F999C1B3CBD5300BC05DA /* BigBangClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		182F99901B3CBD5300BC05DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		182F999B1B3CBD5300BC05DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E2C39B78C5E261F5C4D9F59 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		247346ADFFCB0EAB9298B714 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigBangClient/Pods-BigBangClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A680146360530991AA2D8218 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigBangClientTests/Pods-BigBangClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A85AAFAE2F61E057C61B0F7A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BigBangClientTests/Pods-BigBangClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C43ABE32C45F4BF13659FAFA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		182F998D1B3CBD5300BC05DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839BD471B3DD1CB000277D4 /* WireProtocol.Protocol.swift in Sources */,
+				1839BD4B1B3F9B7C000277D4 /* Channel.swift in Sources */,
+				18F2EA1D1B3CCA3A00AFD093 /* BigBangClient.swift in Sources */,
+				1839BD4D1B40F284000277D4 /* ChannelData.swift in Sources */,
+				18AC571D1B4D74560032D409 /* BigBangClientProtocols.swift in Sources */,
+				1839BD451B3DCAD9000277D4 /* PewRuntime.swift in Sources */,
+				1839BD491B3F9B29000277D4 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		182F99991B3CBD5300BC05DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182F99A51B3CBD5300BC05DA /* BigBangClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		182F99A01B3CBD5300BC05DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 182F99911B3CBD5300BC05DA /* BigBangClient */;
+			targetProxy = 182F999F1B3CBD5300BC05DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		182F99A61B3CBD5300BC05DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		182F99A71B3CBD5300BC05DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		182F99A91B3CBD5300BC05DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28E2DE7AF92EF050B1F4F765 /* Pods-BigBangClient.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = BigBangClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		182F99AA1B3CBD5300BC05DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CB8A70071EE67905D797AF8 /* Pods-BigBangClient.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = BigBangClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		182F99AC1B3CBD5300BC05DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5DC5352CF61A3E712030B85 /* Pods-BigBangClientTests.debug.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BigBangClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		182F99AD1B3CBD5300BC05DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05ACEC468F68A713E14DF1B5 /* Pods-BigBangClientTests.release.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BigBangClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		182F998C1B3CBD5300BC05DA /* Build configuration list for PBXProject "BigBangClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				182F99A61B3CBD5300BC05DA /* Debug */,
+				182F99A71B3CBD5300BC05DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		182F99A81B3CBD5300BC05DA /* Build configuration list for PBXNativeTarget "BigBangClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				182F99A91B3CBD5300BC05DA /* Debug */,
+				182F99AA1B3CBD5300BC05DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		182F99AB1B3CBD5300BC05DA /* Build configuration list for PBXNativeTarget "BigBangClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				182F99AC1B3CBD5300BC05DA /* Debug */,
+				182F99AD1B3CBD5300BC05DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 182F99891B3CBD5300BC05DA /* Project object */;
+}
