@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		182F99981B3CBD5300BC05DA /* BigBangClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 182F99971B3CBD5300BC05DA /* BigBangClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		182F999E1B3CBD5300BC05DA /* BigBangClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F99921B3CBD5300BC05DA /* BigBangClient.framework */; };
+		182F999E1B3CBD5300BC05DA /* BigBang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F99921B3CBD5300BC05DA /* BigBang.framework */; };
 		182F99A51B3CBD5300BC05DA /* BigBangClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F99A41B3CBD5300BC05DA /* BigBangClientTests.swift */; };
 		1839BD451B3DCAD9000277D4 /* PewRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839BD441B3DCAD9000277D4 /* PewRuntime.swift */; };
 		1839BD471B3DD1CB000277D4 /* WireProtocol.Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839BD461B3DD1CB000277D4 /* WireProtocol.Protocol.swift */; };
@@ -33,7 +33,7 @@
 
 /* Begin PBXFileReference section */
 		05ACEC468F68A713E14DF1B5 /* Pods-BigBangClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigBangClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BigBangClientTests/Pods-BigBangClientTests.release.xcconfig"; sourceTree = "<group>"; };
-		182F99921B3CBD5300BC05DA /* BigBangClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BigBangClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		182F99921B3CBD5300BC05DA /* BigBang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BigBang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		182F99961B3CBD5300BC05DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		182F99971B3CBD5300BC05DA /* BigBangClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigBangClient.h; sourceTree = "<group>"; };
 		182F999D1B3CBD5300BC05DA /* BigBangClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigBangClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				182F999E1B3CBD5300BC05DA /* BigBangClient.framework in Frameworks */,
+				182F999E1B3CBD5300BC05DA /* BigBang.framework in Frameworks */,
 				E08930842824D07B440269E9 /* Pods_BigBangClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,7 +88,7 @@
 		182F99931B3CBD5300BC05DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				182F99921B3CBD5300BC05DA /* BigBangClient.framework */,
+				182F99921B3CBD5300BC05DA /* BigBang.framework */,
 				182F999D1B3CBD5300BC05DA /* BigBangClientTests.xctest */,
 			);
 			name = Products;
@@ -186,7 +186,7 @@
 			);
 			name = BigBangClient;
 			productName = BigBangClient;
-			productReference = 182F99921B3CBD5300BC05DA /* BigBangClient.framework */;
+			productReference = 182F99921B3CBD5300BC05DA /* BigBang.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		182F999C1B3CBD5300BC05DA /* BigBangClientTests */ = {
@@ -472,7 +472,8 @@
 				INFOPLIST_FILE = BigBangClient/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = BigBang;
+				PRODUCT_NAME = BigBang;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -492,7 +493,8 @@
 				INFOPLIST_FILE = BigBangClient/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = BigBang;
+				PRODUCT_NAME = BigBang;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

@@ -1,7 +1,7 @@
 
 import Cocoa
 import XCTest
-import BigBangClient
+import BigBang
 import SwiftyJSON
 
 class BigBangClientTests: XCTestCase {

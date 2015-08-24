@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'BigBangClient'
+  s.name = 'BigBang'
   s.version = '0.0.1'
   s.license = 'MIT'
   s.authors      = { 'Jonathan Wagner' => 'tigeba@altereality.com' }
