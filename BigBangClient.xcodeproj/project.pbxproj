@@ -39,6 +39,7 @@
 		182F999D1B3CBD5300BC05DA /* BigBangClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigBangClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		182F99A31B3CBD5300BC05DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		182F99A41B3CBD5300BC05DA /* BigBangClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigBangClientTests.swift; sourceTree = "<group>"; };
+		18343DB81B8D40280016327E /* BigBangPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BigBangPlayground.playground; sourceTree = "<group>"; };
 		1839BD441B3DCAD9000277D4 /* PewRuntime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PewRuntime.swift; sourceTree = "<group>"; };
 		1839BD461B3DD1CB000277D4 /* WireProtocol.Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireProtocol.Protocol.swift; sourceTree = "<group>"; };
 		1839BD481B3F9B29000277D4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		182F99881B3CBD5300BC05DA = {
 			isa = PBXGroup;
 			children = (
+				18343DB81B8D40280016327E /* BigBangPlayground.playground */,
 				182F99941B3CBD5300BC05DA /* BigBangClient */,
 				182F99A11B3CBD5300BC05DA /* BigBangClientTests */,
 				182F99931B3CBD5300BC05DA /* Products */,
