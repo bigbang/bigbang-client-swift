@@ -167,6 +167,13 @@ class BigBangClientTests: XCTestCase {
         })
     }
     
+    func testEnums() {
+        XCTAssertEqual(Operation.Add.description, "Add", "Its an add")
+        XCTAssertEqual(Operation.Update.description, "Update", "Its an Update")
+        XCTAssertEqual(Operation.Remove.description, "Remove", "Its a Remove")
+    }
+    
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

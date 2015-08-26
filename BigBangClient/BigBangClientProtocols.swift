@@ -110,10 +110,18 @@ public protocol Channel {
 }
 
 
-public enum Operation {
+public enum Operation : Printable {
     case Add
     case Update
     case Remove
+    
+    public var description: String {
+        switch self {
+        case .Add: return "Add";
+        case .Update: return "Update";
+        case .Remove: return "Remove";
+        }
+    }
 }
 
 
