@@ -18,12 +18,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 import Foundation
 import SwiftyJSON
 
-
-
 public class DefaultChannel : Channel {
-  
-    public typealias MessageCallback = (ChannelMessage) -> Void
-
     
     private var _name: String;
     private var _client: DefaultBigBangClient

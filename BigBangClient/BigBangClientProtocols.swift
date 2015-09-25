@@ -80,31 +80,71 @@ public protocol BigBangClient {
 }
 
 
+/**
+    Channels group together clients and allow them to share events and data in realtime.
+
+*/
 public protocol Channel {
     
-    ///
-    /// Retrieve the channel's name
-    /// :returns: The channel's name
-    ///
+    /**
+        Retrieve the channel's name
+        
+        -returns: The name of the channel
+    */
     var name : String {
         get
     }
     
-    ///
-    /// Send a message to the channel. Payload can be any JSON object.
-    /// :param: message A JSON message
+    /**
+        Send a message to the channel. Payload can be any JSON object.
+        
+        -parameter: JSON    A JSON message to send to the channel
+    */
     func publish(message:JSON) ->Void
     
     func onMessage( callback: MessageCallback) ->Void
     
+    /**
+        Get a list of the current channel subscriber ids
+    
+        -returns: A list of subscriber ids
+    */
     func getSubscribers() -> [String]
     
+    /**
+        Callback event.  Fired when a client subscribes to the channel
+        
+        -parameter: PresenceCallback Callback with the clientId of the new subscriber
+    
+    */
     func onJoin( callback: PresenceCallback) -> Void
     
+    
+    /**
+        Callback event.  Fired when a client leaves the channel
+        
+        -parameter: PresenceCallback Callback with the clientId of the client leaving the channel
+    
+    */
     func onLeave( callback: PresenceCallback ) -> Void
     
+    
+    /**
+        Access the ChanelData associated with the current channel
+    
+        -returns: The default ChannelData
+
+    */
     func getChannelData() -> ChannelData
     
+
+    /**
+        Access the ChanelData associated with the current channel
+    
+        -parameter: namespace The ChannelData namespace.
+    
+        -returns: ChannelData associated with the given namespace.  The default ChannelData namespace is 'def'    
+    */
     func getChannelData(namespace:String) -> ChannelData
 
 }
