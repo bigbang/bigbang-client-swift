@@ -110,7 +110,7 @@ public protocol Channel {
 }
 
 
-public enum Operation : Printable {
+public enum Operation : CustomStringConvertible {
     case Add
     case Update
     case Remove

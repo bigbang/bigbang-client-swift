@@ -1,3 +1,20 @@
+/*
+ BSD LICENSE
+
+ Copyright (c) 2015, Big Bang IO, LLC
+ All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+ 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 /**
 *  GENERATED CODE. DON'T EDIT.  Reference: PewProtocol.st
 */
@@ -68,127 +85,127 @@ public class WireProtocol : PewProtocol {
     public func wrapNetstring( msg: PewMessage) -> String {
         var msgString:String! = msg.serializeJson().rawString()
         msgString = String(msg.messageType) + ":" + msgString!
-        var len = count(msgString)
+        let len = msgString.characters.count
         return String(len) + ":" + msgString + ","
     }
 
     public func dispatchNetstring(msgStr: String) {
-        var idx = msgStr.indexOf(":")
-        var typeInt = msgStr.subString(0, length: idx).toInt()
-        var mt:MessageTypes = MessageTypes( rawValue: typeInt!)!
-        var jsonString = msgStr.subString(idx + 1, length: msgStr.length - ( idx + 1 ))
+        let idx = msgStr.indexOf(":")
+        let typeInt = Int( msgStr.subString(0, length: idx))
+        let mt:MessageTypes = MessageTypes( rawValue: typeInt!)!
+        let jsonString = msgStr.subString(idx + 1, length: msgStr.length - ( idx + 1 ))
 
       switch (mt) {
             case MessageTypes.WireChannelDataCreate:
-              var WireChannelDataCreate_msg = WireChannelDataCreate();
+              let WireChannelDataCreate_msg = WireChannelDataCreate();
               WireChannelDataCreate_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelDataCreate( WireChannelDataCreate_msg );
 
               break;
             case MessageTypes.WireChannelDataDel:
-              var WireChannelDataDel_msg = WireChannelDataDel();
+              let WireChannelDataDel_msg = WireChannelDataDel();
               WireChannelDataDel_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelDataDel( WireChannelDataDel_msg );
 
               break;
             case MessageTypes.WireChannelDataDelete:
-              var WireChannelDataDelete_msg = WireChannelDataDelete();
+              let WireChannelDataDelete_msg = WireChannelDataDelete();
               WireChannelDataDelete_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelDataDelete( WireChannelDataDelete_msg );
 
               break;
             case MessageTypes.WireChannelDataPut:
-              var WireChannelDataPut_msg = WireChannelDataPut();
+              let WireChannelDataPut_msg = WireChannelDataPut();
               WireChannelDataPut_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelDataPut( WireChannelDataPut_msg );
 
               break;
             case MessageTypes.WireChannelDataUpdate:
-              var WireChannelDataUpdate_msg = WireChannelDataUpdate();
+              let WireChannelDataUpdate_msg = WireChannelDataUpdate();
               WireChannelDataUpdate_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelDataUpdate( WireChannelDataUpdate_msg );
 
               break;
             case MessageTypes.WireChannelJoin:
-              var WireChannelJoin_msg = WireChannelJoin();
+              let WireChannelJoin_msg = WireChannelJoin();
               WireChannelJoin_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelJoin( WireChannelJoin_msg );
 
               break;
             case MessageTypes.WireChannelLeave:
-              var WireChannelLeave_msg = WireChannelLeave();
+              let WireChannelLeave_msg = WireChannelLeave();
               WireChannelLeave_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelLeave( WireChannelLeave_msg );
 
               break;
             case MessageTypes.WireChannelMessage:
-              var WireChannelMessage_msg = WireChannelMessage();
+              let WireChannelMessage_msg = WireChannelMessage();
               WireChannelMessage_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelMessage( WireChannelMessage_msg );
 
               break;
             case MessageTypes.WireChannelSubscribe:
-              var WireChannelSubscribe_msg = WireChannelSubscribe();
+              let WireChannelSubscribe_msg = WireChannelSubscribe();
               WireChannelSubscribe_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelSubscribe( WireChannelSubscribe_msg );
 
               break;
             case MessageTypes.WireChannelUnSubscribe:
-              var WireChannelUnSubscribe_msg = WireChannelUnSubscribe();
+              let WireChannelUnSubscribe_msg = WireChannelUnSubscribe();
               WireChannelUnSubscribe_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireChannelUnSubscribe( WireChannelUnSubscribe_msg );
 
               break;
             case MessageTypes.WireConnectFailure:
-              var WireConnectFailure_msg = WireConnectFailure();
+              let WireConnectFailure_msg = WireConnectFailure();
               WireConnectFailure_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireConnectFailure( WireConnectFailure_msg );
 
               break;
             case MessageTypes.WireConnectRequest:
-              var WireConnectRequest_msg = WireConnectRequest();
+              let WireConnectRequest_msg = WireConnectRequest();
               WireConnectRequest_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireConnectRequest( WireConnectRequest_msg );
 
               break;
             case MessageTypes.WireConnectSuccess:
-              var WireConnectSuccess_msg = WireConnectSuccess();
+              let WireConnectSuccess_msg = WireConnectSuccess();
               WireConnectSuccess_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireConnectSuccess( WireConnectSuccess_msg );
 
               break;
             case MessageTypes.WireDisconnectRequest:
-              var WireDisconnectRequest_msg = WireDisconnectRequest();
+              let WireDisconnectRequest_msg = WireDisconnectRequest();
               WireDisconnectRequest_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireDisconnectRequest( WireDisconnectRequest_msg );
 
               break;
             case MessageTypes.WireDisconnectSuccess:
-              var WireDisconnectSuccess_msg = WireDisconnectSuccess();
+              let WireDisconnectSuccess_msg = WireDisconnectSuccess();
               WireDisconnectSuccess_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireDisconnectSuccess( WireDisconnectSuccess_msg );
 
               break;
             case MessageTypes.WirePing:
-              var WirePing_msg = WirePing();
+              let WirePing_msg = WirePing();
               WirePing_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWirePing( WirePing_msg );
 
               break;
             case MessageTypes.WirePong:
-              var WirePong_msg = WirePong();
+              let WirePong_msg = WirePong();
               WirePong_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWirePong( WirePong_msg );
 
               break;
             case MessageTypes.WireQueueMessage:
-              var WireQueueMessage_msg = WireQueueMessage();
+              let WireQueueMessage_msg = WireQueueMessage();
               WireQueueMessage_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireQueueMessage( WireQueueMessage_msg );
 
               break;
             case MessageTypes.WireRpcMessage:
-              var WireRpcMessage_msg = WireRpcMessage();
+              let WireRpcMessage_msg = WireRpcMessage();
               WireRpcMessage_msg.deserializeJson(JSON.newJSONFromString(jsonString))
               listener.onWireRpcMessage( WireRpcMessage_msg );
 
@@ -196,7 +213,7 @@ public class WireProtocol : PewProtocol {
 
           default:
               //TODO Exceptions
-              println("ERROR: Undefined messageType: ")
+              print("ERROR: Undefined messageType: ")
       }
     }
 }

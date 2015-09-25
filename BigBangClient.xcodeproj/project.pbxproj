@@ -218,7 +218,9 @@
 		182F99891B3CBD5300BC05DA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = tigeba;
 				TargetAttributes = {
 					182F99911B3CBD5300BC05DA = {
@@ -397,6 +399,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -474,6 +477,7 @@
 				INFOPLIST_FILE = BigBangClient/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.bigbang.client.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_MODULE_NAME = BigBang;
 				PRODUCT_NAME = BigBang;
 				SKIP_INSTALL = YES;
@@ -495,6 +499,7 @@
 				INFOPLIST_FILE = BigBangClient/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.bigbang.client.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_MODULE_NAME = BigBang;
 				PRODUCT_NAME = BigBang;
 				SKIP_INSTALL = YES;
@@ -516,6 +521,7 @@
 				);
 				INFOPLIST_FILE = BigBangClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.bigbang.client.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -531,6 +537,7 @@
 				);
 				INFOPLIST_FILE = BigBangClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.bigbang.client.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

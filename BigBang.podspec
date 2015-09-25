@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'BigBang'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.license = 'BSD'
   s.authors      = { 'Jonathan Wagner' => 'tigeba@altereality.com' }
   s.source       = { :git => "https://github.com/bigbang/bigbang-client-swift.git", :tag => s.version }
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source_files = 'BigBangClient/*.swift'
   s.requires_arc = true
 
-  s.dependency 'Alamofire',  '~> 1.2'
-  s.dependency 'SwiftyJSON', '~> 2.2.0'
-  s.dependency 'Starscream', '~> 0.9.3'
+  s.dependency 'Alamofire',  '~> 2.0.2'
+  s.dependency 'SwiftyJSON', '~> 2.3.0'
+  s.dependency 'Starscream', '~> 1.0.0'
 end

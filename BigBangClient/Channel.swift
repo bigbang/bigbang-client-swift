@@ -59,7 +59,7 @@ public class DefaultChannel : Channel {
     }
     
     public func publish(message:JSON) ->Void {
-        var msg:WireChannelMessage = WireChannelMessage()
+        let msg:WireChannelMessage = WireChannelMessage()
         msg.name = self.name
         msg.payload = message.toByteArray()
         
@@ -69,10 +69,10 @@ public class DefaultChannel : Channel {
     public func getSubscribers() -> [String] {
         var ret = [String]()
         
-        var subs = metaNamespace().get("subs")
+        let subs = metaNamespace().get("subs")
   
-        for (key,val) in subs! {
-            var ary = val.arrayValue
+        for (_,val) in subs! {
+            let ary = val.arrayValue
             for client in ary {
                 ret.append(client.string!)
             }
@@ -85,10 +85,10 @@ public class DefaultChannel : Channel {
     
     private func updateSubscribers() -> Void {
     
-        var old = currentSubscribers
+        let old = currentSubscribers
         currentSubscribers = Set( getSubscribers() )
         
-        var diff = old.exclusiveOr(currentSubscribers)
+        let diff = old.exclusiveOr(currentSubscribers)
         
         
         for id in diff {
@@ -132,7 +132,7 @@ public class DefaultChannel : Channel {
         }
         else {
             //TODO 
-            println("WARN: No message handler.")
+            print("WARN: No message handler.", terminator: "")
         }
     }
     

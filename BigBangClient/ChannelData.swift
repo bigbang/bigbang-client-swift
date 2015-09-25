@@ -43,12 +43,13 @@ public class DefaultChannelData : ChannelData {
     }
     
     public func keys() -> [String] {
-        return elementMap.keys.array
+        return [String](elementMap.keys)
+        //return elementMap.keys.array
     }
     
     public func put(key:String, value:JSON ) -> Void {
         
-        var put = WireChannelDataPut()
+        let put = WireChannelDataPut()
         put.key = key
         put.ks = self.ns
         put.name = channel.name
@@ -59,7 +60,7 @@ public class DefaultChannelData : ChannelData {
     }
     
     public func remove(key:String) -> Void {
-        var rem = WireChannelDataDel()
+        let rem = WireChannelDataDel()
         rem.key = key
         rem.ks = self.ns
         rem.name = self.channel.name
@@ -92,7 +93,7 @@ public class DefaultChannelData : ChannelData {
     }
     
     public func onWireChannelDataCreate( msg: WireChannelDataCreate ) -> Void {
-        var o = msg.payload?.getBytesAsJson()
+        let o = msg.payload?.getBytesAsJson()
         
         elementMap[msg.key!] = o
         
@@ -110,7 +111,7 @@ public class DefaultChannelData : ChannelData {
 
     public func onWireChannelDataUpdate( msg: WireChannelDataUpdate ) -> Void {
        
-        var o = msg.payload?.getBytesAsJson()
+        let o = msg.payload?.getBytesAsJson()
         elementMap[msg.key!] = o
         
         for update in updateList {

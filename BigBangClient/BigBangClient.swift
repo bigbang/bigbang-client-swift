@@ -32,7 +32,7 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
     
     private var clientKey:String!
     private var bufString:String!
-    private var theSocket:WebSocket?
+    private var socket:WebSocket?;
     private var clientId:String!
     
     
@@ -69,33 +69,28 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
     
     
     func login(user:String, passwd:String) {
-        
-        Alamofire.request(.GET, instanceURL.absoluteString!+"/loginAnon", parameters: ["wireprotocolhash": proto.protocolHash()])
-            .responseString{ (request, response, jsonString, error) in
-                
-                if let connectError = error {
+        Alamofire.request(.GET, instanceURL.absoluteString+"/loginAnon", parameters: ["wireprotocolhash": proto.protocolHash()])
+            .responseString(completionHandler: { (_, _,response) -> Void in
+                if (!response.isSuccess) {
                     self.connectCallback("Unable to connect. Try again later")
                 }
                 else {
-                    if let dataFromString = jsonString!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-                        let json = JSON(data: dataFromString)
-                        
+                        let json = JSON.newJSONFromString(response.value!)
                         if(json["authenticated"]) {
                             self.clientKey = json["clientKey"].string
                             self.internalConnect(self.clientKey)
                         }
                         else {
-                            println("AUTHENTICATION ERROR.")
+                            self.connectCallback("Authentication error.")
                         }
-                    }
                 }
-        }
+        })
     }
-    
+
     func internalConnect(clientKey:String) {
-        
-        var scheme =  (instanceURL.scheme  == "http") ? "ws" : "wss"
-        var port = instanceURL.port
+
+        let scheme =  (instanceURL.scheme  == "http") ? "ws" : "wss"
+        let port = instanceURL.port
         var url = "\(scheme)://\(instanceURL.host!)"
         
         if( port != nil) {
@@ -103,19 +98,18 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
         }
         
         url += "/sjs/websocket"
-        var socket = WebSocket(url: NSURL(string: url)!)
-        socket.delegate = self
-        socket.connect()
+        socket = WebSocket(url: NSURL(string: url)!)
+        socket!.delegate = self
+        socket!.connect()
+
     }
     
     public func websocketDidConnect(socket: WebSocket) {
-        self.theSocket = socket
-        var req = WireConnectRequest()
+        let req = WireConnectRequest()
         req.clientKey = self.clientKey
         req.version = 1234
         sendToServer(req)
     }
-    
     
     public func websocketDidDisconnect(ws: WebSocket, error: NSError?) {
         if( nil != disconnectCallback) {
@@ -123,8 +117,6 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
         }
     }
     
-    
-    //text
     public func websocketDidReceiveMessage(socket: WebSocket, text: String) {
         if( bufString == nil || bufString.isEmpty) {
             bufString = ""
@@ -139,45 +131,45 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
     
     //binary
     public func websocketDidReceiveData(socket: WebSocket, data: NSData) {
-        println("got some data: \(data.length)")
+        print("got some data: \(data.length)")
     }
     
     func sendToServer(msg:PewMessage) {
-        if let var s = theSocket {
+        if let s = socket {
              s.writeString(proto.wrapNetstring(msg))
         }
         else {
             //TODO EXCEPTIONS
-            println("ERROR: SOCKET INVALID.")
+            print("ERROR: SOCKET INVALID.")
         }
     }
     
     func parseTextStream() -> Bool  {
-        var delimIdx = bufString.indexOf(":")
+        let delimIdx = bufString.indexOf(":")
         
         if( delimIdx != -1) {
-            var lenStr = bufString.subString(0, length: delimIdx)
-            var msgLen:Int! = lenStr.toInt()
+            let lenStr = bufString.subString(0, length: delimIdx)
+            let msgLen:Int! = Int(lenStr )
             
             //Save the earth, recycle.
             if (bufString.length < msgLen + 1 + delimIdx) {
                 //just give up, leave the bufString alone for now..
                 return false;
             } else {
-                var body = bufString.subString(delimIdx + 1, length:msgLen + 1 );
+                let body = bufString.subString(delimIdx + 1, length:msgLen + 1 );
                 //Needs to end with a delimiter
                 if ( !body.hasSuffix(",")  ) {
                     //TODO ERROR
-                    println("TextProtocol decode exception, not terminated with comma");
+                    print("TextProtocol decode exception, not terminated with comma");
                 }
                 
-                var actualBody = body.subString (0, length:body.length - 1);
+                let actualBody = body.subString (0, length:body.length - 1);
                 
                 proto.dispatchNetstring(actualBody)
                 
                 if (bufString.length > msgLen + 1 + delimIdx + 1) {
-                    var start = msgLen + 1 + delimIdx + 1
-                    var left = bufString.subString( start, length: bufString.length - start )
+                    let start = msgLen + 1 + delimIdx + 1
+                    let left = bufString.subString( start, length: bufString.length - start )
                     self.bufString = left
                     return true;
                 } else {
@@ -206,14 +198,14 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
     
     public func subscribe( name: String, callback: SubscribeCallback) {
         channelSubscribeMap[name] = callback
-        var msg = WireChannelSubscribe()
+        let msg = WireChannelSubscribe()
         msg.name = name
         sendToServer(msg)
     }
     
     public func onWireChannelJoin( msg: WireChannelJoin ) -> Void {
         
-        var callback:SubscribeCallback = channelSubscribeMap[msg.name!]!
+        let callback:SubscribeCallback = channelSubscribeMap[msg.name!]!
         
         if( !msg.success ) {
             callback("Unable to join channel", nil )
@@ -221,7 +213,7 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
         }
         
         
-        var channel:DefaultChannel = DefaultChannel(name: msg.name!, client: self)
+        let channel:DefaultChannel = DefaultChannel(name: msg.name!, client: self)
         channel.channelPermissions = msg.channelPermissions
         
         channelMap[channel.name] = channel

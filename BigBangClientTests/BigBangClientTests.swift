@@ -1,5 +1,4 @@
 
-import Cocoa
 import XCTest
 import BigBang
 import SwiftyJSON
@@ -8,6 +7,7 @@ class BigBangClientTests: XCTestCase {
     
     private var TEST_HOST = "http://demo.bigbang.io"
     private var SECURE_TEST_HOST = "https://demo.bigbang.io"
+    let TEST_TIMEOUT = 10.0;
     
     
     override func setUp() {
@@ -28,7 +28,7 @@ class BigBangClientTests: XCTestCase {
             expectation.fulfill()
         })
         
-        waitForExpectationsWithTimeout(5.0, handler:nil)
+        waitForExpectationsWithTimeout(TEST_TIMEOUT, handler:nil)
     }
     
     func testConnectHttps() {
@@ -39,7 +39,7 @@ class BigBangClientTests: XCTestCase {
             expectation.fulfill()
         })
         
-        waitForExpectationsWithTimeout(5.0, handler:nil)
+        waitForExpectationsWithTimeout(TEST_TIMEOUT, handler:nil)
     }
     
     func testChannelEcho() {
@@ -51,7 +51,7 @@ class BigBangClientTests: XCTestCase {
         message["test"] = "messages are awesome"
         
         clientOnChannel(TEST_HOST, channelName: channelName) { (client) -> Void in
-            var channel = client.getChannel(channelName)
+            let channel = client.getChannel(channelName)
             
             channel!.onMessage({ (channelMessage) in
                 
@@ -64,7 +64,7 @@ class BigBangClientTests: XCTestCase {
             
         }
         
-        waitForExpectationsWithTimeout(5.0, handler:nil)
+        waitForExpectationsWithTimeout(TEST_TIMEOUT, handler:nil)
     }
     
     func testSubscribers() {
@@ -75,7 +75,7 @@ class BigBangClientTests: XCTestCase {
         
         
         clientOnChannel(TEST_HOST, channelName: channelName) { (client) -> Void in
-            var channel = client.getChannel(channelName)
+            let channel = client.getChannel(channelName)
             
             channel!.onJoin({(joined) in
                 XCTAssertNotNil(joined, "joined id should not be null")
@@ -84,7 +84,7 @@ class BigBangClientTests: XCTestCase {
             })
         }
         
-        waitForExpectationsWithTimeout(5.0, handler:nil)
+        waitForExpectationsWithTimeout(TEST_TIMEOUT, handler:nil)
     }
     
     
@@ -114,8 +114,8 @@ class BigBangClientTests: XCTestCase {
         clientOnChannel(TEST_HOST, channelName: channelName, callback: { (client) -> Void in
             
             
-            var channel = client.getChannel(channelName)
-            var cd = channel!.getChannelData(ns)
+            let channel = client.getChannel(channelName)
+            let cd = channel!.getChannelData(ns)
             
             cd.onAdd({ (key,val) in
                 XCTAssertEqual("foo", key, "add key and put key are same")
@@ -142,12 +142,17 @@ class BigBangClientTests: XCTestCase {
         })
         
         
-        waitForExpectationsWithTimeout(5.0, handler:nil)
+        waitForExpectationsWithTimeout(TEST_TIMEOUT, handler:nil)
         
     }
     
     func getMeAClient( host:String, callback:(BigBangClient) -> Void ) -> Void {
         let client = DefaultBigBangClient(appURL: host)
+        
+        client.disconnected { () -> Void in
+            print("MASSIVE FAIL");
+        }
+        
         client.connect({ (err) in
             XCTAssertTrue(err == nil, "No errors, no problems")
             callback(client)
@@ -171,15 +176,6 @@ class BigBangClientTests: XCTestCase {
         XCTAssertEqual(Operation.Add.description, "Add", "Its an add")
         XCTAssertEqual(Operation.Update.description, "Update", "Its an Update")
         XCTAssertEqual(Operation.Remove.description, "Remove", "Its a Remove")
-    }
-    
-    
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
     }
     
 }
