@@ -211,9 +211,7 @@ public class WireProtocol : PewProtocol {
 
               break;
 
-          default:
-              //TODO Exceptions
-              print("ERROR: Undefined messageType: ")
+
       }
     }
 }
