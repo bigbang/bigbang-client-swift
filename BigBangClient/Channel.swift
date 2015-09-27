@@ -18,7 +18,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 import Foundation
 import SwiftyJSON
 
-public class DefaultChannel : Channel {
+internal class DefaultChannel : Channel {
     
     private var _name: String;
     private var _client: DefaultBigBangClient
@@ -29,13 +29,13 @@ public class DefaultChannel : Channel {
     
     private var namespaces = [String:DefaultChannelData]()
     
-    public var name:String {
+    internal var name:String {
         get {
             return _name
         }
     }
     
-    public var channelPermissions: [String]!
+    internal var channelPermissions: [String]!
     
     init(name:String, client:DefaultBigBangClient) {
         self._name = name
@@ -49,11 +49,11 @@ public class DefaultChannel : Channel {
         })
     }
     
-    public func onMessage( callback: MessageCallback) ->Void {
+    internal func onMessage( callback: MessageCallback) ->Void {
         self.messageHandler = callback
     }
     
-    public func publish(message:JSON) ->Void {
+    internal func publish(message:JSON) ->Void {
         let msg:WireChannelMessage = WireChannelMessage()
         msg.name = self.name
         msg.payload = message.toByteArray()
@@ -61,7 +61,7 @@ public class DefaultChannel : Channel {
         _client.sendToServer(msg)
     }
     
-    public func getSubscribers() -> [String] {
+    internal func getSubscribers() -> [String] {
         var ret = [String]()
         
         let subs = metaNamespace().get("subs")
@@ -103,25 +103,25 @@ public class DefaultChannel : Channel {
     
     
     
-    public func getChannelData() -> ChannelData {
+    internal func getChannelData() -> ChannelData {
         return getOrCreateChannelData("def")
     }
     
-    public func getChannelData(namespace:String) -> ChannelData {
+    internal func getChannelData(namespace:String) -> ChannelData {
         return getOrCreateChannelData(namespace)
     }
     
-    public func onJoin( callback: PresenceCallback) -> Void {
+    internal func onJoin( callback: PresenceCallback) -> Void {
         self.joinHandler = callback
     }
     
-    public func onLeave( callback: PresenceCallback ) -> Void {
+    internal func onLeave( callback: PresenceCallback ) -> Void {
         self.leaveHandler = callback
     }
     
     
     
-    public func onWireChannelMessage(msg:WireChannelMessage) -> Void {
+    internal func onWireChannelMessage(msg:WireChannelMessage) -> Void {
         if(messageHandler != nil) {
             messageHandler(ChannelMessage( senderId:msg.senderId!, payload:msg.payload!, channel:self))
         }
@@ -131,13 +131,13 @@ public class DefaultChannel : Channel {
         }
     }
     
-    public func onWireChannelDataCreate( msg: WireChannelDataCreate ) -> Void {
+    internal func onWireChannelDataCreate( msg: WireChannelDataCreate ) -> Void {
         getOrCreateChannelData(msg.ks).onWireChannelDataCreate(msg)
     }
-    public func onWireChannelDataUpdate( msg: WireChannelDataUpdate ) -> Void {
+    internal func onWireChannelDataUpdate( msg: WireChannelDataUpdate ) -> Void {
         getOrCreateChannelData(msg.ks).onWireChannelDataUpdate(msg)
     }
-    public func onWireChannelDataDelete( msg: WireChannelDataDelete ) -> Void {
+    internal func onWireChannelDataDelete( msg: WireChannelDataDelete ) -> Void {
         getOrCreateChannelData(msg.ks).onWireChannelDataDelete(msg)
     }
     

@@ -18,7 +18,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 import Foundation
 import SwiftyJSON
 
-public class DefaultChannelData : ChannelData {
+internal class DefaultChannelData : ChannelData {
         
     private var channel:DefaultChannel
     private var ns:String
@@ -31,23 +31,23 @@ public class DefaultChannelData : ChannelData {
     private var keysMap = [String:[OperationCallback]]()
     
     
-    public init( channel:DefaultChannel, ns:String, client:DefaultBigBangClient) {
+    internal init( channel:DefaultChannel, ns:String, client:DefaultBigBangClient) {
         self.ns = ns
         self.channel = channel
         self.client = client
     }
     
     
-    public func get(key:String) -> JSON? {
+    internal func get(key:String) -> JSON? {
         return elementMap[key]
     }
     
-    public func keys() -> [String] {
+    internal func keys() -> [String] {
         return [String](elementMap.keys)
         //return elementMap.keys.array
     }
     
-    public func put(key:String, value:JSON ) -> Void {
+    internal func put(key:String, value:JSON ) -> Void {
         
         let put = WireChannelDataPut()
         put.key = key
@@ -59,7 +59,7 @@ public class DefaultChannelData : ChannelData {
     
     }
     
-    public func remove(key:String) -> Void {
+    internal func remove(key:String) -> Void {
         let rem = WireChannelDataDel()
         rem.key = key
         rem.ks = self.ns
@@ -68,19 +68,19 @@ public class DefaultChannelData : ChannelData {
         client.sendToServer(rem)
     }
     
-    public func onAdd( callback:AddCallback ) -> Void {
+    internal func onAdd( callback:AddCallback ) -> Void {
         addList.append(callback)
     }
     
-    public func onUpdate( callback:UpdateCallback ) -> Void {
+    internal func onUpdate( callback:UpdateCallback ) -> Void {
         updateList.append(callback)
     }
     
-    public func onRemove( callback:RemoveCallback) -> Void {
+    internal func onRemove( callback:RemoveCallback) -> Void {
         delList.append(callback)
     }
     
-    public func on( key:String, callback:OperationCallback) -> Void {
+    internal func on( key:String, callback:OperationCallback) -> Void {
         
         if var ops = keysMap[key] {
           ops.append(callback)
@@ -92,7 +92,7 @@ public class DefaultChannelData : ChannelData {
         }
     }
     
-    public func onWireChannelDataCreate( msg: WireChannelDataCreate ) -> Void {
+    internal func onWireChannelDataCreate( msg: WireChannelDataCreate ) -> Void {
         let o = msg.payload?.getBytesAsJson()
         
         elementMap[msg.key!] = o
@@ -109,7 +109,7 @@ public class DefaultChannelData : ChannelData {
         }
     }
 
-    public func onWireChannelDataUpdate( msg: WireChannelDataUpdate ) -> Void {
+    internal func onWireChannelDataUpdate( msg: WireChannelDataUpdate ) -> Void {
        
         let o = msg.payload?.getBytesAsJson()
         elementMap[msg.key!] = o
@@ -125,7 +125,7 @@ public class DefaultChannelData : ChannelData {
         }
     }
     
-    public func onWireChannelDataDelete( msg: WireChannelDataDelete ) -> Void {
+    internal func onWireChannelDataDelete( msg: WireChannelDataDelete ) -> Void {
         elementMap[msg.key!] = nil
         
         for del in delList {
