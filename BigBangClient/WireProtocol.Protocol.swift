@@ -23,7 +23,7 @@ import Foundation
 import SwiftyJSON
 
 
-public protocol WireProtocolProtocolListener {
+internal protocol WireProtocolProtocolListener {
     func onWireChannelDataCreate( msg: WireChannelDataCreate ) -> Void 
     func onWireChannelDataDel( msg: WireChannelDataDel ) -> Void 
     func onWireChannelDataDelete( msg: WireChannelDataDelete ) -> Void 
@@ -47,11 +47,11 @@ public protocol WireProtocolProtocolListener {
 }
 
 
-public class WireProtocol : PewProtocol {
+internal class WireProtocol : PewProtocol {
 
-    public var listener: WireProtocolProtocolListener!
+    internal var listener: WireProtocolProtocolListener!
 
-    public init() {
+    internal init() {
 
     }
 
@@ -78,18 +78,18 @@ public class WireProtocol : PewProtocol {
 
     }
 
-    public func protocolHash() -> String  {
+    internal func protocolHash() -> String  {
         return "d96a44664eff8b2a710ded18e07ab927"
     }
 
-    public func wrapNetstring( msg: PewMessage) -> String {
+    internal func wrapNetstring( msg: PewMessage) -> String {
         var msgString:String! = msg.serializeJson().rawString()
         msgString = String(msg.messageType) + ":" + msgString!
         let len = msgString.characters.count
         return String(len) + ":" + msgString + ","
     }
 
-    public func dispatchNetstring(msgStr: String) {
+    internal func dispatchNetstring(msgStr: String) {
         let idx = msgStr.indexOf(":")
         let typeInt = Int( msgStr.subString(0, length: idx))
         let mt:MessageTypes = MessageTypes( rawValue: typeInt!)!
@@ -217,25 +217,25 @@ public class WireProtocol : PewProtocol {
 }
 
 
-public class WireChannelDataCreate  : PewMessage {
+internal class WireChannelDataCreate  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 0
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var key: String?
-    public var ks: String?
-    public var name: String?
-    public var payload: ByteArray?
+    internal var key: String?
+    internal var ks: String?
+    internal var name: String?
+    internal var payload: ByteArray?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["key"].string = key
         json["ks"].string = ks
@@ -246,7 +246,7 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.key = json["key"].stringValue
         self.ks = json["ks"].stringValue
         self.name = json["name"].stringValue
@@ -255,24 +255,24 @@ public class WireChannelDataCreate  : PewMessage {
 
     }
 }
- public class WireChannelDataDel  : PewMessage {
+ internal class WireChannelDataDel  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 1
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var key: String?
-    public var ks: String?
-    public var name: String?
+    internal var key: String?
+    internal var ks: String?
+    internal var name: String?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["key"].string = key
         json["ks"].string = ks
@@ -281,32 +281,32 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.key = json["key"].stringValue
         self.ks = json["ks"].stringValue
         self.name = json["name"].stringValue
 
     }
 }
- public class WireChannelDataDelete  : PewMessage {
+ internal class WireChannelDataDelete  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 2
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var key: String?
-    public var ks: String?
-    public var name: String?
-    public var payload: ByteArray?
+    internal var key: String?
+    internal var ks: String?
+    internal var name: String?
+    internal var payload: ByteArray?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["key"].string = key
         json["ks"].string = ks
@@ -317,7 +317,7 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.key = json["key"].stringValue
         self.ks = json["ks"].stringValue
         self.name = json["name"].stringValue
@@ -326,25 +326,25 @@ public class WireChannelDataCreate  : PewMessage {
 
     }
 }
- public class WireChannelDataPut  : PewMessage {
+ internal class WireChannelDataPut  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 3
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var key: String?
-    public var ks: String?
-    public var name: String?
-    public var payload: ByteArray?
+    internal var key: String?
+    internal var ks: String?
+    internal var name: String?
+    internal var payload: ByteArray?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["key"].string = key
         json["ks"].string = ks
@@ -355,7 +355,7 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.key = json["key"].stringValue
         self.ks = json["ks"].stringValue
         self.name = json["name"].stringValue
@@ -364,25 +364,25 @@ public class WireChannelDataCreate  : PewMessage {
 
     }
 }
- public class WireChannelDataUpdate  : PewMessage {
+ internal class WireChannelDataUpdate  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 4
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var key: String?
-    public var ks: String?
-    public var name: String?
-    public var payload: ByteArray?
+    internal var key: String?
+    internal var ks: String?
+    internal var name: String?
+    internal var payload: ByteArray?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["key"].string = key
         json["ks"].string = ks
@@ -393,7 +393,7 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.key = json["key"].stringValue
         self.ks = json["ks"].stringValue
         self.name = json["name"].stringValue
@@ -402,27 +402,27 @@ public class WireChannelDataCreate  : PewMessage {
 
     }
 }
- public class WireChannelJoin  : PewMessage {
+ internal class WireChannelJoin  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 5
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var name: String?
-    public var success: Bool
-    public var channelPermissions: [String]?
-    public var errorMessage: String?
+    internal var name: String?
+    internal var success: Bool
+    internal var channelPermissions: [String]?
+    internal var errorMessage: String?
 
 
-    public init( ) {
+    internal init( ) {
         self.success = false
 
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["name"].string = name
         json["success"].bool =  success
@@ -434,7 +434,7 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.name = json["name"].stringValue
         self.success = json["success"].boolValue
 
@@ -443,51 +443,51 @@ public class WireChannelDataCreate  : PewMessage {
 
     }
 }
- public class WireChannelLeave  : PewMessage {
+ internal class WireChannelLeave  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 6
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var name: String?
+    internal var name: String?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["name"].string = name
 
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.name = json["name"].stringValue
 
     }
 }
- public class WireChannelMessage  : PewMessage {
+ internal class WireChannelMessage  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 7
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var senderId: String?
-    public var name: String?
-    public var payload: ByteArray?
+    internal var senderId: String?
+    internal var name: String?
+    internal var payload: ByteArray?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["senderId"].string = senderId
         json["name"].string = name
@@ -497,7 +497,7 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.senderId = json["senderId"].stringValue
         self.name = json["name"].stringValue
         self.payload = ByteArray( b64bytes:json["payload"].stringValue );
@@ -505,23 +505,23 @@ public class WireChannelDataCreate  : PewMessage {
 
     }
 }
- public class WireChannelSubscribe  : PewMessage {
+ internal class WireChannelSubscribe  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 8
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var name: String?
-    public var jsonConfig: String?
+    internal var name: String?
+    internal var jsonConfig: String?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["name"].string = name
         json["jsonConfig"].string = jsonConfig
@@ -529,83 +529,83 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.name = json["name"].stringValue
         self.jsonConfig = json["jsonConfig"].stringValue
 
     }
 }
- public class WireChannelUnSubscribe  : PewMessage {
+ internal class WireChannelUnSubscribe  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 9
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var name: String?
+    internal var name: String?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["name"].string = name
 
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.name = json["name"].stringValue
 
     }
 }
- public class WireConnectFailure  : PewMessage {
+ internal class WireConnectFailure  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 10
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var failureMessage: String?
+    internal var failureMessage: String?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["failureMessage"].string = failureMessage
 
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.failureMessage = json["failureMessage"].stringValue
 
     }
 }
- public class WireConnectRequest  : PewMessage {
+ internal class WireConnectRequest  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 11
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var version: Int?
-    public var clientKey: String?
+    internal var version: Int?
+    internal var clientKey: String?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["version"].int =  version
         json["clientKey"].string = clientKey
@@ -613,29 +613,29 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.version = json["version"].intValue
         self.clientKey = json["clientKey"].stringValue
 
     }
 }
- public class WireConnectSuccess  : PewMessage {
+ internal class WireConnectSuccess  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 12
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var clientId: String?
-    public var clientToServerPingMS: Int?
+    internal var clientId: String?
+    internal var clientToServerPingMS: Int?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["clientId"].string = clientId
         json["clientToServerPingMS"].int =  clientToServerPingMS
@@ -643,114 +643,114 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.clientId = json["clientId"].stringValue
         self.clientToServerPingMS = json["clientToServerPingMS"].intValue
 
     }
 }
- public class WireDisconnectRequest  : PewMessage {
+ internal class WireDisconnectRequest  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 13
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
     }
 }
- public class WireDisconnectSuccess  : PewMessage {
+ internal class WireDisconnectSuccess  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 14
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
     }
 }
- public class WirePing  : PewMessage {
+ internal class WirePing  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 15
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
     }
 }
- public class WirePong  : PewMessage {
+ internal class WirePong  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 16
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
     }
 }
- public class WireQueueMessage  : PewMessage {
+ internal class WireQueueMessage  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 17
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var id: String?
-    public var name: String?
-    public var payload: ByteArray?
+    internal var id: String?
+    internal var name: String?
+    internal var payload: ByteArray?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["id"].string = id
         json["name"].string = name
@@ -760,7 +760,7 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.id = json["id"].stringValue
         self.name = json["name"].stringValue
         self.payload = ByteArray( b64bytes:json["payload"].stringValue );
@@ -768,24 +768,24 @@ public class WireChannelDataCreate  : PewMessage {
 
     }
 }
- public class WireRpcMessage  : PewMessage {
+ internal class WireRpcMessage  : PewMessage {
 
     // Message Type
     private var _messageType: Int = 18
 
-    public var messageType: Int {
+    internal var messageType: Int {
         get { return _messageType }
     }
 
-    public var id: String?
-    public var ns: String?
-    public var payload: ByteArray?
+    internal var id: String?
+    internal var ns: String?
+    internal var payload: ByteArray?
 
 
-    public init( ) {
+    internal init( ) {
     }
 
-    public func serializeJson() -> SwiftyJSON.JSON {
+    internal func serializeJson() -> SwiftyJSON.JSON {
         var json = JSON(NSDictionary())
         json["id"].string = id
         json["ns"].string = ns
@@ -795,7 +795,7 @@ public class WireChannelDataCreate  : PewMessage {
         return json
     }
 
-    public func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
+    internal func deserializeJson(json:SwiftyJSON.JSON) ->Void  {
         self.id = json["id"].stringValue
         self.ns = json["ns"].stringValue
         self.payload = ByteArray( b64bytes:json["payload"].stringValue );

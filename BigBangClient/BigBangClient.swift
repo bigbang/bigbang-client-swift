@@ -104,6 +104,14 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
 
     }
     
+    public func subscribe( name: String, callback: SubscribeCallback) {
+        channelSubscribeMap[name] = callback
+        let msg = WireChannelSubscribe()
+        msg.name = name
+        sendToServer(msg)
+    }
+    
+    
     public func websocketDidConnect(socket: WebSocket) {
         let req = WireConnectRequest()
         req.clientKey = self.clientKey
@@ -183,27 +191,19 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
         }
     }
     
-    public func onWireConnectSuccess( msg: WireConnectSuccess ) -> Void {
+    internal func onWireConnectSuccess( msg: WireConnectSuccess ) -> Void {
         self.clientId = msg.clientId
         self.clientToServerPingMS = msg.clientToServerPingMS!
         
         self.connectCallback( nil )
     }
     
-    public func onWireConnectFailure( msg: WireConnectFailure ) -> Void {
+    internal func onWireConnectFailure( msg: WireConnectFailure ) -> Void {
         self.clientId = nil
         self.connectCallback(msg.failureMessage!)
     }
     
-    
-    public func subscribe( name: String, callback: SubscribeCallback) {
-        channelSubscribeMap[name] = callback
-        let msg = WireChannelSubscribe()
-        msg.name = name
-        sendToServer(msg)
-    }
-    
-    public func onWireChannelJoin( msg: WireChannelJoin ) -> Void {
+    internal func onWireChannelJoin( msg: WireChannelJoin ) -> Void {
         
         let callback:SubscribeCallback = channelSubscribeMap[msg.name!]!
         
@@ -221,7 +221,7 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
         callback( nil, channel )
     }
     
-    public func onWireChannelMessage( msg: WireChannelMessage ) -> Void {
+    internal func onWireChannelMessage( msg: WireChannelMessage ) -> Void {
         channelMap[msg.name!]!.onWireChannelMessage(msg)
     }
     
@@ -229,57 +229,57 @@ public class DefaultBigBangClient : BigBangClient, WebSocketDelegate, WireProtoc
         return channelMap[name]
     }
     
-    public func onWireChannelDataCreate( msg: WireChannelDataCreate ) -> Void {
+    internal func onWireChannelDataCreate( msg: WireChannelDataCreate ) -> Void {
         channelMap[msg.name!]!.onWireChannelDataCreate(msg)
     }
 
-    public func onWireChannelDataUpdate( msg: WireChannelDataUpdate ) -> Void {
+    internal func onWireChannelDataUpdate( msg: WireChannelDataUpdate ) -> Void {
         channelMap[msg.name!]!.onWireChannelDataUpdate(msg)
     }
     
-    public func onWireChannelDataDelete( msg: WireChannelDataDelete ) -> Void {
+    internal func onWireChannelDataDelete( msg: WireChannelDataDelete ) -> Void {
         channelMap[msg.name!]!.onWireChannelDataDelete(msg)
     }
     
-    public func onWireChannelLeave( msg: WireChannelLeave ) -> Void {
+    internal func onWireChannelLeave( msg: WireChannelLeave ) -> Void {
         
     }
     
-    public func onWireChannelSubscribe( msg: WireChannelSubscribe ) -> Void {
+    internal func onWireChannelSubscribe( msg: WireChannelSubscribe ) -> Void {
         
     }
-    public func onWireChannelUnSubscribe( msg: WireChannelUnSubscribe ) -> Void {
-        
-    }
-    
-    public func onWireConnectRequest( msg: WireConnectRequest ) -> Void {
+    internal func onWireChannelUnSubscribe( msg: WireChannelUnSubscribe ) -> Void {
         
     }
     
-    public func onWireDisconnectRequest( msg: WireDisconnectRequest ) -> Void {
+    internal func onWireConnectRequest( msg: WireConnectRequest ) -> Void {
         
     }
-    public func onWireDisconnectSuccess( msg: WireDisconnectSuccess ) -> Void {
+    
+    internal func onWireDisconnectRequest( msg: WireDisconnectRequest ) -> Void {
         
     }
-    public func onWirePing( msg: WirePing ) -> Void {
+    internal func onWireDisconnectSuccess( msg: WireDisconnectSuccess ) -> Void {
+        
+    }
+    internal func onWirePing( msg: WirePing ) -> Void {
         sendToServer(WirePong())
     }
-    public func onWirePong( msg: WirePong ) -> Void {
+    internal func onWirePong( msg: WirePong ) -> Void {
         
     }
-    public func onWireQueueMessage( msg: WireQueueMessage ) -> Void {
+    internal func onWireQueueMessage( msg: WireQueueMessage ) -> Void {
         //nada
     }
-    public func onWireRpcMessage( msg: WireRpcMessage ) -> Void {
-        //nada
-    }
-    
-    public func onWireChannelDataPut( msg: WireChannelDataPut ) -> Void {
+    internal func onWireRpcMessage( msg: WireRpcMessage ) -> Void {
         //nada
     }
     
-    public func onWireChannelDataDel( msg: WireChannelDataDel ) -> Void {
+    internal func onWireChannelDataPut( msg: WireChannelDataPut ) -> Void {
+        //nada
+    }
+    
+    internal func onWireChannelDataDel( msg: WireChannelDataDel ) -> Void {
         //nada
     }
     
