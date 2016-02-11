@@ -10,7 +10,7 @@ Requirements
 * XCode 7.0+
 
 
-Cocoapods
+CocoaPods
 =========
 
 The Big Bang SDK for iOS and OSX is now available via [CocoaPods](https://cocoapods.org/?q=bigbang)  CocoaPods simplifies the process of adding dependencies to your iOS and OSX projects.  Get started by installing the CocoaPods gem:
