@@ -7,7 +7,7 @@ Requirements
 ==========
 
 * iOS 8.0+ / Mac OSX 10.9+
-* XCode 7.0+
+* Xcode 7.0+
 
 
 CocoaPods
@@ -17,7 +17,7 @@ The Big Bang SDK for iOS and OSX is now available via [CocoaPods](https://cocoap
 
     gem install cocoapods
     
-Integrate the SDK into your XCode project by adding it to your `Podfile`
+Integrate the SDK into your Xcode project by adding it to your `Podfile`
 
     pod 'BigBangClient', '0.0.2'
     
@@ -29,7 +29,7 @@ Then run the following command to install the SDK
 Quick Start - iOS
 ============
 
-Start by importing the framework.  See installation instructions for importing the framework into your XCode project.
+Start by importing the framework.  See installation instructions for importing the framework into your Xcode project.
 
 ```swift
 import BigBang
